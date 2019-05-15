@@ -39,6 +39,7 @@ window.ontouchmove = function(e) {
 
 // initial function
 function init() {
+  document.getElementById("cont").style.visibility = "hidden";
   //establishing some stuff
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");

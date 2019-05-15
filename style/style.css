@@ -19,6 +19,99 @@ i {
   margin-left: 10px;
 }
 
+#cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #d24;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  font-size: 22px;
+  font-family: "Nova Script", cursive;
+}
+
+.main_loader span {
+  display: inline-block;
+  height: 35px;
+  width: 10px;
+  background-color: #fff;
+  margin: 1px;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-animation: load 0.9s ease-in-out infinite;
+          animation: load 0.9s ease-in-out infinite;
+}
+
+.main_loader span:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.main_loader span:nth-child(2) {
+  -webkit-animation-delay: 0.09s;
+          animation-delay: 0.09s;
+}
+
+.main_loader span:nth-child(3) {
+  -webkit-animation-delay: 0.18s;
+          animation-delay: 0.18s;
+}
+
+.main_loader span:nth-child(4) {
+  -webkit-animation-delay: 0.27s;
+          animation-delay: 0.27s;
+}
+
+.main_loader span:nth-child(5) {
+  -webkit-animation-delay: 0.36s;
+          animation-delay: 0.36s;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1, 2.5);
+            transform: scale(1, 2.5);
+  }
+  50% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1, 2.5);
+            transform: scale(1, 2.5);
+  }
+  50% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
 #fullscreen {
   display: block;
   position: absolute;
@@ -145,9 +238,9 @@ h1 {
   right: 0;
   margin: auto;
   margin-top: 20px;
-  height: 70vh;
+  height: 65vh;
   max-height: 516px;
-  width: 90%;
+  width: 82%;
   max-width: 400px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -330,9 +423,9 @@ a {
   bottom: 0;
   right: 0;
   margin: auto;
-  height: 62vh;
+  height: 60vh;
   max-height: 250px;
-  width: 92%;
+  width: 86%;
   max-width: 500px;
   border: 3px solid white;
   border-radius: 10px;

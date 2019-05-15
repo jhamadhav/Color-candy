@@ -27,6 +27,61 @@ $desktop: 740px;
     @content;
   }
 }
+// loader
+#cont {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d24; // #55efc4;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  font-size: 22px;
+  font-family: "Nova Script", cursive;
+}
+.main_loader {
+  span {
+    display: inline-block;
+    height: 35px;
+    width: 10px;
+    background-color: #fff;
+    margin: 1px;
+    transform: scaleY(1);
+    animation: load 0.9s ease-in-out infinite;
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.09s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.18s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.27s;
+    }
+    &:nth-child(5) {
+      animation-delay: 0.36s;
+    }
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1, 2.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
 
 //for full screen
 #fullscreen {
@@ -133,9 +188,9 @@ h1 {
   right: 0;
   margin: auto;
   margin-top: 20px;
-  height: 70vh;
+  height: 65vh;
   max-height: 516px;
-  width: 90%;
+  width: 82%;
   max-width: 400px;
   align-items: center;
   z-index: 3;
@@ -280,9 +335,9 @@ a {
   bottom: 0;
   right: 0;
   margin: auto;
-  height: 62vh;
+  height: 60vh;
   max-height: 250px;
-  width: 92%;
+  width: 86%;
   max-width: 500px;
   border: 3px solid white;
   border-radius: 10px;
