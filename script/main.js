@@ -62,6 +62,7 @@ function init() {
 //function to draw
 function draw() {
   //to paint the whole canvas
+  ctx.rect(-w / 2, -h / 2, w, h, "#262626");
   ctx.drawImage(bg, -w / 2, -h / 2, w, h);
 
   //to update obstacles

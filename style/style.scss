@@ -134,6 +134,7 @@ $desktop: 740px;
 
 //for home tab
 .home {
+  overflow: hidden;
   visibility: visible;
   button {
     height: 50px;
