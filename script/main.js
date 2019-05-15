@@ -39,7 +39,9 @@ window.ontouchmove = function(e) {
 
 // initial function
 function init() {
+  //to cut off the loader once it is loaded
   document.getElementById("cont").style.visibility = "hidden";
+
   //establishing some stuff
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
