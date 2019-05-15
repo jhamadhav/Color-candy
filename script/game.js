@@ -1,10 +1,10 @@
 function play_game() {
   let home = document.getElementsByClassName("home");
-  home[0].style.visibility = "hidden";
+  home[0].style.display = "none";
   let tab = document.getElementsByClassName("tab");
-  tab[0].style.visibility = "hidden";
+  tab[0].style.display = "none";
   let game = document.getElementsByClassName("container");
-  game[0].style.visibility = "visible";
+  game[0].style.display = "block";
   play_again();
 }
 
@@ -36,7 +36,7 @@ function set_param() {
 }
 function play_again() {
   let game = document.getElementsByClassName("container");
-  game[1].style.visibility = "hidden";
+  game[1].style.display = "none";
   canvas.style.filter = "blur(0)";
   reset_game();
   run = setInterval(draw, 1000 / fps);
@@ -82,8 +82,8 @@ function reset_game() {
 function game_end(level) {
   canvas.style.filter = "blur(5px)";
   let game = document.getElementsByClassName("container");
-  game[1].style.visibility = "visible";
-  document.getElementById("end_card").style.zIndex = "visible";
+  game[1].style.display = "block";
+  document.getElementById("end_card").style.display = "flex";
   let level_show = document.getElementById("level_show");
   level_show.innerText = level;
   let hscore_show = document.getElementById("hscore_show");
@@ -158,12 +158,12 @@ function game_end(level) {
 }
 function main_menu() {
   let game = document.getElementsByClassName("container");
-  game[1].style.visibility = "hidden";
-  game[0].style.visibility = "hidden";
+  game[1].style.display = "none";
+  game[0].style.display = "none";
   let home = document.getElementsByClassName("home");
-  home[0].style.visibility = "visible";
+  home[0].style.display = "flex";
   let tab = document.getElementsByClassName("tab");
-  tab[0].style.visibility = "visible";
+  tab[0].style.display = "flex";
 
   //music and vibration on click
   if (music) {

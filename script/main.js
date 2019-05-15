@@ -29,18 +29,18 @@ window.addEventListener("resize", init);
 
 // control player by mousemovement
 window.onmousemove = function(e) {
-  // console.log(angle);
+  e.preventDefault();
   angle = (e.clientY / (h / 3)) * 2 * Math.PI;
 };
 window.ontouchmove = function(e) {
-  // console.log(angle);
-  angle = (e.clientY / (h / 3)) * 2 * Math.PI;
+  e.preventDefault();
+  angle = (e.touches[e.touches.length - 1].pageY / (h / 3)) * 2 * Math.PI;
 };
 
 // initial function
 function init() {
   //to cut off the loader once it is loaded
-  document.getElementById("cont").style.visibility = "hidden";
+  document.getElementById("cont").style.display = "none";
 
   //establishing some stuff
   canvas = document.getElementById("canvas");
@@ -149,15 +149,3 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
-
-// /* Close fullscreen */
-// function closeFullscreen() {
-//   if (document.exitFullscreen) {
-//     document.exitFullscreen();
-//   } else if (document.mozCancelFullScreen) { /* Firefox */
-//     document.mozCancelFullScreen();
-//   } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-//     document.webkitExitFullscreen();
-//   } else if (document.msExitFullscreen) { /* IE/Edge */
-//     document.msExitFullscreen();
-//   }

@@ -170,6 +170,19 @@ i {
 .home {
   overflow: hidden;
   visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .home button {
@@ -230,14 +243,14 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  left: -40px;
+  left: 0;
   right: 0;
   margin: auto;
   margin-top: 10px;
@@ -298,11 +311,10 @@ h1 {
 #guide,
 #sett,
 #about {
-  display: block;
+  display: none;
   padding: 10px;
   color: aliceblue;
   z-index: 4;
-  visibility: hidden;
 }
 
 #guide span,
@@ -403,8 +415,7 @@ a {
 }
 
 .container {
-  visibility: hidden;
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -413,9 +424,7 @@ a {
 }
 
 #end_card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   position: absolute;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -448,7 +457,6 @@ a {
   font-weight: bold;
   color: #fff;
   text-transform: capitalize;
-  visibility: hidden;
 }
 
 #end_card button {

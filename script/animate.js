@@ -2,13 +2,13 @@ function nav(x) {
   let tab = document.getElementsByClassName("tab");
   for (let i = 0; i < tab.length; i++) {
     tab[i].style.left = "-40px";
-    tab[i].style.visibility = "hidden";
+    tab[i].style.display = "none";
   }
 
   tab[0].style.left = 0;
-  tab[0].style.visibility = "hidden";
+  tab[0].style.display = "none";
   tab[x].style.left = 0;
-  tab[x].style.visibility = "visible";
+  tab[x].style.display = "flex";
   //music and vibration on click
   if (music) {
     let click = document.getElementById("click");
@@ -21,10 +21,10 @@ function animate_tabs() {
   let tab = document.getElementsByClassName("tab");
   for (let i = 0; i < tab.length; i++) {
     tab[i].style.left = "-40px";
-    tab[i].style.visibility = "hidden";
+    tab[i].style.display = "none";
   }
   tab[0].style.left = 0;
-  tab[0].style.visibility = "visible";
+  tab[0].style.display = "flex";
   //music and vibration on click
   if (music) {
     let click = document.getElementById("click");

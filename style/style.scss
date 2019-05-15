@@ -136,6 +136,10 @@ $desktop: 740px;
 .home {
   overflow: hidden;
   visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   button {
     height: 50px;
     width: 200px;
@@ -184,10 +188,10 @@ h1 {
 //the inner tab that contains other small tabs
 .tab {
   display: flex;
-  position: absolute;
+  position: relative;
   flex-direction: column;
   justify-content: space-around;
-  left: -40px;
+  left: 0;
   right: 0;
   margin: auto;
   margin-top: 10px;
@@ -237,11 +241,11 @@ h1 {
 #guide,
 #sett,
 #about {
-  display: block;
+  display: none;
   padding: 10px;
   color: aliceblue;
   z-index: 4;
-  visibility: hidden;
+
   span {
     font-size: 22px;
     color: #ffeb3b;
@@ -323,15 +327,14 @@ a {
 
 // for main game tab
 .container {
-  visibility: hidden;
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   transition-duration: 200ms;
 }
 #end_card {
-  display: flex;
+  display: none;
   position: absolute;
   flex-direction: column;
   justify-content: space-evenly;
@@ -356,7 +359,7 @@ a {
   font-weight: bold;
   color: #fff;
   text-transform: capitalize;
-  visibility: hidden;
+
   button {
     height: 50px;
     width: 200px;
