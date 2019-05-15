@@ -37,20 +37,6 @@ window.ontouchmove = function(e) {
   angle = (e.clientY / (h / 3)) * 2 * Math.PI;
 };
 
-// control player by using keyboard
-//document.addEventListener("keydown", angle_incr);
-function angle_incr(e) {
-  e.preventDefault();
-  if (e.key == "ArrowUp") {
-    angle += 0.4;
-    angle %= 2 * Math.PI;
-  }
-  if (e.key == "ArrowDown") {
-    angle -= 0.4;
-    angle %= 2 * Math.PI;
-  }
-}
-
 // initial function
 function init() {
   //establishing some stuff
