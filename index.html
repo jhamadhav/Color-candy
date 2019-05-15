@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style\style.css" />
+    <script src="script\main.js"></script>
+    <script src="script\obstacle.js"></script>
+    <script src="script\animate.js"></script>
+    <script src="script\game.js"></script>
+    <title>testing</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nova+Script|PT+Sans|Poppins|Slabo+27px"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="fullscreen" onclick="openFullscreen()">
+      <i class="fas fa-expand"></i>
+      <div id="tooltip">Fullscreen</div>
+    </div>
+
+    <div class="home">
+      <img src="color-candy_img\sweet-candy-land.jpg" alt="bgc" class="candy" />
+      <h1>
+        <span style="color: #ff00e0">C</span
+        ><span style="color: #ffeb3b">O</span><span style="color:tomato">L</span
+        ><span style="color:#ffeb3b">O</span
+        ><span style="color: #ff00e0">R</span>
+        - CANDY
+      </h1>
+      <div id="opt" class="tab">
+        <button onclick="play_game()">
+          play <i class="fas fa-gamepad"></i>
+        </button>
+        <button onclick="nav(1)">guide <i class="fas fa-book"></i></button>
+        <button onclick="nav(2)">setting <i class="fas fa-cogs"></i></button>
+        <button onclick="nav(3)">
+          About <i class="fas fa-user-astronaut"></i>
+        </button>
+      </div>
+
+      <div id="guide" class="tab">
+        <div class="back">
+          <div class="back_icon"><i class="fas fa-arrow-left"></i></div>
+          <div class="text_back">guide <i class="fas fa-book"></i></div>
+        </div>
+
+        <div class="section">
+          <span>STORY : </span> <br />
+          <p>
+            You have been chosen by the benevolent king of the
+            <i>candy land</i> to protect it by surviving the fall of candy loops
+            from the sky. <br />
+            These loops are a threat to all the <i>fluffy</i> (i.e people of
+            candy land),you are the only one powerful enough to pass through all
+            <b>FORTY</b> of them and save our precious <i>candy land</i>.
+            <br /><br />BE VICTORIOUS HERO ! <br />
+          </p>
+
+          <span>INSTRUCTION :</span>
+          <p>
+            1. Use touch in case for handheld device and cursor for
+            desktop/laptop to control the player. <br />
+            <br />
+            2. Collect <B>40</B> points in each difficulty level to finish the
+            game. <br /><br />
+            3.Select difficulty level and other feature in the setting option.
+            <br />
+          </p>
+        </div>
+      </div>
+
+      <div id="sett" class="tab">
+        <div class="back">
+          <div class="back_icon"><i class="fas fa-arrow-left"></i></div>
+          <div class="text_back">setting <i class="fas fa-cogs"></i></div>
+        </div>
+        <div class="section">
+          <span>system : </span>
+          <div class="system">
+            <div>
+              Allow Sound :
+              <input type="checkbox" name="sound" id="sound" checked />
+            </div>
+            <div>
+              Allow Vibration :
+              <input type="checkbox" name="vibra" id="vibra" />
+            </div>
+          </div>
+          <br />
+          <span>difficulty : </span>
+          <div class="system">
+            <Select id="level">
+              <Option value="easy">EASY</Option>
+
+              <Option value="medium" selected>MEDIUM</Option>
+              <Option value="hard">HARD</Option>
+            </Select>
+          </div>
+        </div>
+      </div>
+
+      <div id="about" class="tab">
+        <div class="back">
+          <div class="back_icon"><i class="fas fa-arrow-left"></i></div>
+          <div class="text_back">
+            About <i class="fas fa-user-astronaut"></i>
+          </div>
+          <br />
+        </div>
+        <div class="section">
+          <span>about game :</span> <br />
+          <p>
+            This game is highly inspired by an amazing game called
+            <i>super hexagon</i>, my version might not be the best but it
+            consists simple twist and more circles :). <br />
+            I HOPE YOU WILL ENJOY IT!!! <br /><br />
+            <span>note : </span> <br />
+
+            I do not own any music or images used in the game, support the
+            original creator by checking their account . <br />
+            Music by : <a href="chipzel.co.uk">chipzel</a> .
+          </p>
+
+          <span>About me : </span>
+          <p>
+            Hey there, I'm the creator of this game called <i>color candy</i>
+            <br />
+            I'm <span style="color:#d24;text-transform:none">Madhav Jha</span>,
+            I created this just for fun and to learn to code a bit. <br />
+            I really hope that you will love it . <br />
+            Check my
+            <a href="https://www.sololearn.com/Profile/4295664">profile</a> on
+            sololearn to know more about me and my coding journey.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <canvas id="canvas"></canvas>
+      <div id="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="container" id="end_card">
+      <div id="home_button" onclick="main_menu()">
+        <i class="fas fa-home"></i>
+      </div>
+      <div>
+        <img
+          src="color-candy_img\clouds.jpg"
+          alt="bgc"
+          class="candy"
+          style="filter:blur(2px);z-index: -1;"
+        />
+        <div>Level : <span id="level_show"></span></div>
+        <div>High - score : <span id="hscore_show">0</span></div>
+        <div>Score : <span id="score_show">0</span></div>
+        <div>
+          <span>Message : </span>
+          <span id="msg"></span>
+        </div>
+      </div>
+      <button id="play_again" onclick="play_again()">
+        <i class="fas fa-redo-alt"></i>
+      </button>
+    </div>
+
+    <!-- audio files -->
+    <!-- click sound -->
+    <audio id="click">
+      <source src="color-candy_sound\Click.mp3" type="audio/mp3" />
+    </audio>
+    <!-- easy level music -->
+    <audio id="easy" loop>
+      <source src="color-candy_sound\easy_music.mp3" type="audio/mp3" />
+    </audio>
+    <!-- medium level music -->
+    <audio id="medium" loop>
+      <source src="color-candy_sound\medium_music.mp3" type="audio/mp3" />
+    </audio>
+    <!-- hard level music -->
+    <audio id="hard" loop>
+      <source src="color-candy_sound\easy_music.mp3" type="audio/mp3" />
+    </audio>
+    <!-- win sound -->
+    <audio id="win">
+      <source
+        src="color-candy_sound\Winner Sound Effect .mp3"
+        type="audio/mp3"
+      />
+    </audio>
+    <!-- lost sound -->
+    <audio id="lose">
+      <source src="color-candy_sound\Lose sound .mp3" type="audio/mp3" />
+    </audio>
+  </body>
+</html>

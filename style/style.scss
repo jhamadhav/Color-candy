@@ -1,0 +1,404 @@
+// All the fonts used
+// font-family: 'Poppins', sans-serif;
+// font-family: 'PT Sans', sans-serif;
+// font-family: 'Slabo 27px', serif;
+// font-family: 'Nova Script', cursive;
+
+//general stuff
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #262626;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+i {
+  margin-left: 10px;
+}
+
+//for media query
+$desktop: 740px;
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+//for full screen
+#fullscreen {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  width: 30px;
+  cursor: pointer;
+  z-index: 10;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
+  &:active {
+    transform: scale(0.9);
+    text-shadow: none;
+  }
+
+  @include desktop {
+    font-size: 28px;
+    top: 10px;
+    right: 20px;
+    &:hover #tooltip {
+      visibility: visible;
+      left: -140px;
+    }
+  }
+}
+#tooltip {
+  position: relative;
+  text-align: center;
+  width: 120px;
+  height: 26px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: -180px;
+  transition-duration: 100ms;
+  top: -34px;
+  visibility: hidden;
+  border-radius: 4px 2px 2px 4px;
+  &::before {
+    content: "";
+    position: absolute;
+    border: 13.7px solid transparent;
+    border-left: 13.7px solid rgba(0, 0, 0, 0.5);
+    right: -27.5px;
+  }
+}
+
+//for home tab
+.home {
+  visibility: visible;
+  button {
+    height: 50px;
+    width: 200px;
+    outline: none;
+    color: #262626;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-family: "Slabo 27px", serif;
+    cursor: pointer;
+    &:hover {
+      border: 3px solid lightcoral;
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+.candy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  filter: blur(3px); //the image tab
+}
+h1 {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+  z-index: 3;
+  font-family: "Nova Script", cursive;
+  font-size: 34px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
+  @include desktop {
+    font-size: 64px;
+  }
+}
+//the inner tab that contains other small tabs
+.tab {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-around;
+  left: -40px;
+  right: 0;
+  margin: auto;
+  margin-top: 20px;
+  height: 70vh;
+  max-height: 516px;
+  width: 90%;
+  max-width: 400px;
+  align-items: center;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition-duration: 150ms;
+  overflow: hidden;
+}
+#opt {
+  // the tab that contains main option tabs
+  left: 0;
+  transition-duration: 30ms;
+}
+//the back button and title on inner tabs
+.back {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #14ffe9;
+}
+.back_icon {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.9);
+  }
+}
+.text_back {
+  display: block;
+  margin-top: -30px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+//other inner tabs
+#guide,
+#sett,
+#about {
+  display: block;
+  padding: 10px;
+  color: aliceblue;
+  z-index: 4;
+  visibility: hidden;
+  span {
+    font-size: 22px;
+    color: #ffeb3b;
+    text-transform: uppercase;
+  }
+}
+p {
+  font-family: "PT Sans", sans-serif;
+  padding: 10px;
+}
+.section {
+  height: calc(100% - 45px);
+  width: 100%;
+  overflow-y: scroll;
+}
+
+#sound {
+  margin-bottom: 10px;
+}
+.system {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#level {
+  height: 40px;
+  width: 160px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: "PT Sans", sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  position: relative;
+  height: 22px;
+  width: 54px;
+  background-color: #c6c6c6;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+  //transition: 0.6s;
+  top: 8px;
+  margin-left: 15px;
+  cursor: pointer;
+
+  &:checked[type="checkbox"] {
+    background: #03a9f4;
+  }
+  &:checked[type="checkbox"]:before {
+    left: 30px;
+  }
+}
+input[type="checkbox"]:before {
+  content: "";
+  height: 24px;
+  width: 24px;
+  border-radius: 18px;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  transform: scale(1.1);
+  //transition: 0.4s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #d24;
+}
+
+// for main game tab
+.container {
+  visibility: hidden;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-duration: 200ms;
+}
+#end_card {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 62vh;
+  max-height: 250px;
+  width: 92%;
+  max-width: 500px;
+  border: 3px solid white;
+  border-radius: 10px;
+  z-index: 3;
+  background-color: #d24;
+  transition-duration: 50ms;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+  visibility: hidden;
+  button {
+    height: 50px;
+    width: 200px;
+    outline: none;
+    color: #fff;
+    font-size: 26px;
+    border: 3px solid lightcoral;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    &:hover {
+      border: 3px solid crimson;
+    }
+    &:active {
+      transform: scale(0.9);
+      text-shadow: none;
+    }
+  }
+}
+#msg {
+  margin-left: 5px;
+  color: #ffeb3b;
+}
+#home_button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  margin-top: 7px;
+  margin-right: 18px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 24px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
+  &:active {
+    transform: scale(0.9);
+    text-shadow: none;
+  }
+}
+canvas {
+  background-color: #262626;
+}
+
+#loader {
+  display: block;
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition-duration: 50ms;
+  background-image: -webkit-linear-gradient(left, #14ffe9, #ffeb3b, #ff00e0);
+  animation: animate 5s linear infinite;
+  border: 0 solid white;
+  transform-origin: 0, 0;
+  z-index: 3;
+  &:after {
+    content: "";
+    position: absolute;
+    margin: 15px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #262626;
+    opacity: 0.96;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    margin: auto;
+    background-image: -webkit-linear-gradient(left, #14ffe9, #ffeb3b, #ff00e0);
+  }
+
+  span:nth-child(1) {
+    filter: blur(2px);
+  }
+  span:nth-child(2) {
+    filter: blur(5px);
+  }
+  span:nth-child(3) {
+    filter: blur(10px);
+  }
+  span:nth-child(4) {
+    filter: blur(25px);
+  }
+}
+
+@keyframes animate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//audio tag
+audio {
+  display: none;
+}
