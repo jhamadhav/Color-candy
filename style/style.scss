@@ -174,9 +174,11 @@ h1 {
   z-index: 3;
   font-family: "Nova Script", cursive;
   font-size: 34px;
+  margin-top: 10px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
   @include desktop {
     font-size: 64px;
+    margin-top: 0;
   }
 }
 //the inner tab that contains other small tabs
@@ -188,7 +190,7 @@ h1 {
   left: -40px;
   right: 0;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 65vh;
   max-height: 516px;
   width: 82%;
@@ -198,6 +200,9 @@ h1 {
   background-color: rgba(0, 0, 0, 0.7);
   transition-duration: 150ms;
   overflow: hidden;
+  @include desktop {
+    margin-top: 20px;
+  }
 }
 #opt {
   // the tab that contains main option tabs

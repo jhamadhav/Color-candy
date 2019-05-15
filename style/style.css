@@ -215,12 +215,14 @@ h1 {
   z-index: 3;
   font-family: "Nova Script", cursive;
   font-size: 34px;
+  margin-top: 10px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 740px) {
   h1 {
     font-size: 64px;
+    margin-top: 0;
   }
 }
 
@@ -238,7 +240,7 @@ h1 {
   left: -40px;
   right: 0;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 65vh;
   max-height: 516px;
   width: 82%;
@@ -251,6 +253,12 @@ h1 {
   -webkit-transition-duration: 150ms;
           transition-duration: 150ms;
   overflow: hidden;
+}
+
+@media (min-width: 740px) {
+  .tab {
+    margin-top: 20px;
+  }
 }
 
 #opt {
