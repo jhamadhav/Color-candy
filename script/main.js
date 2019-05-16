@@ -1,4 +1,4 @@
-var canvas, ctx, h, w, game_stop, run;
+var canvas, ctx, h, w, game_stop, run, score_keeper;
 var angle = 0;
 var fps = 60;
 var r = 50,
@@ -39,15 +39,25 @@ window.ontouchmove = function(e) {
 
 // initial function
 function init() {
-  //to cut off the loader once it is loaded
-  document.getElementById("cont").style.display = "none";
-
   //establishing some stuff
+  score_keeper = document.getElementById("score_keeper");
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   h = canvas.height = window.innerHeight;
   w = canvas.width = window.innerWidth;
   ctx.translate(w / 2, h / 2);
+
+  //to set background image and paint the canvas
+  ctx.rect(-w / 2, -h / 2, w, h, "#262626");
+  ctx.fill();
+  bg = new Image();
+  bg.src = "color-candy_img/game_backdround.jpg";
+  bg.onload = function() {
+    ctx.drawImage(bg, -w / 2, -h / 2, w, h);
+
+    //to cut off the loader once it is loaded
+    document.getElementById("cont").style.display = "none";
+  };
 
   //game functions
   reset_game();
@@ -63,6 +73,7 @@ function init() {
 function draw() {
   //to paint the whole canvas
   ctx.rect(-w / 2, -h / 2, w, h, "#262626");
+  ctx.fill();
   ctx.drawImage(bg, -w / 2, -h / 2, w, h);
 
   //to update obstacles
@@ -77,12 +88,31 @@ function draw() {
     switch (level) {
       case "easy":
         score.easy++;
+        score_keeper.innerText = score.easy;
+        if (score_keeper.value == 40) {
+          level = medium;
+          game_end();
+        }
         break;
       case "medium":
         score.medium++;
+        score_keeper.innerText = score.medium;
+        if (score_keeper.value == 40) {
+          level = hard;
+          game_end();
+        }
         break;
       case "hard":
         score.hard++;
+        score_keeper.innerText = score.hard;
+        if (score_keeper.value == 40) {
+          level = easy;
+          game_end();
+          if (score.easy == 40 && score.medium == 40 && score.hard == 40) {
+            document.getElementById("msg").innerText =
+              "Yay!! Candy land is safe now ! wanna restart ?";
+          }
+        }
         break;
     }
     create_obs();
@@ -131,21 +161,36 @@ function draw_circle(
   ctx.closePath();
 }
 
-/* To make fullscreen*/
-var elem = document.documentElement;
-
 /* View in fullscreen */
 function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) {
-    /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) {
-    /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    /* IE/Edge */
-    elem.msRequestFullscreen();
+  var elem = document.documentElement;
+  if (document.fullscreenElement == null) {
+    // it's  not fullscreen so make it
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  } else {
+    // if fullscreen then exit it!
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      /* IE/Edge */
+      document.msExitFullscreen();
+    }
   }
 }

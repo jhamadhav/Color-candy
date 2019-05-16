@@ -57,12 +57,7 @@ function reset_game() {
   score.easy = 0;
   score.medium = 0;
   score.hard = 0;
-  //to set background image
-  bg = new Image();
-  bg.src = "color-candy_img/game_backdround.jpg";
-  bg.onload = function() {
-    ctx.drawImage(bg, -w / 2, -h / 2, w, h);
-  };
+  score_keeper.innerText = 0;
 
   //making of initial obstacles
   obstacle[0] = new Obstacle(
@@ -113,7 +108,7 @@ function game_end(level) {
       temp = score.hard;
       break;
   }
-  if (temp < 50) {
+  if (temp < 40) {
     msg.innerText = "Try again !";
   } else {
     msg.innerText = "Play next level !";
@@ -124,19 +119,6 @@ function game_end(level) {
       win.play();
       let game_music = document.getElementById(level);
       game_music.pause();
-    }
-
-    switch (level) {
-      case "easy":
-        level = medium;
-        break;
-      case "medium":
-        level = hard;
-        break;
-      case "hard":
-        level = easy;
-        msg.innerText = "Yay!! Candy land is safe now ! wanna restart ?";
-        break;
     }
   }
 
@@ -150,7 +132,7 @@ function game_end(level) {
     game_music.pause();
   }
   if (vibration) {
-    window.navigator.vibrate(200);
+    window.navigator.vibrate(400);
   }
 }
 function main_menu() {
@@ -170,17 +152,3 @@ function main_menu() {
     click.play();
   }
 }
-/*
-  canvas.onclick = function() {
-    // console.log(angle);
-    // console.log(obstacle[0].a2);
-    // obstacle[0].coll();
-    if (run != false) {
-      clearInterval(run);
-      run = false;
-    } else {
-      run = setInterval(game, 1000 / fps);
-    }
-  };
-
-  */

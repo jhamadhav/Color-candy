@@ -49,6 +49,7 @@
         ><span style="color: #ff00e0">R</span>
         - CANDY
       </h1>
+
       <div id="opt" class="tab">
         <button onclick="play_game()">
           play <i class="fas fa-gamepad"></i>
@@ -80,8 +81,8 @@
 
           <span>INSTRUCTION :</span>
           <p>
-            1. Use touch in case for handheld device and cursor for
-            desktop/laptop to control the player. <br />
+            1. Use touch in case for handheld device (i.e drag/swipe up or down)
+            and cursor for desktop/laptop to control the player. <br />
             <br />
             2. Collect <B>40</B> points in each difficulty level to finish the
             game. <br /><br />
@@ -140,29 +141,29 @@
             <i>super hexagon</i>, my version might not be the best but it
             consists simple twist and more circles :). <br />
             I HOPE YOU WILL ENJOY IT!!! <br /><br />
-            <span>note : </span> <br />
-
-            I do not own any music or images used in the game, support the
-            original creator by checking their account . <br />
-            Music by : <a href="chipzel.co.uk">Chipzel</a> .
           </p>
 
           <span>About me : </span>
           <p>
             Hey there, I'm the creator of this game called <i>color candy</i>
             <br />
-            I'm <span style="color:#d24;text-transform:none">Madhav Jha</span>,
-            I created this just for fun and to learn to code a bit. <br />
+            I'm
+            <span style="color:#d24;text-transform:none">Madhav Jha</span>, I
+            created this just for fun and to learn to code a bit. <br />
             <br />
             I really hope that you will love it . <br />
             Check my profile on
-            <a href="https://www.sololearn.com/Profile/4295664">Sololearn</a> &
-            <a href="https://github.com/jhamadhav">Github</a> to know more about
-            me and my coding journey. <br />
+            <a href="https://www.sololearn.com/Profile/4295664">Sololearn</a>
+            & <a href="https://github.com/jhamadhav">Github</a> to know more
+            about me and my coding journey. <br />
             <br />
             <span>Note :</span> <br />
+            I do not own any music or images used in the game, support the
+            original creator by checking their account . <br />
+            Music by : <a href="chipzel.co.uk">Chipzel</a> . <br /><br />
             To get more info on the coding of this game
-            <a href="https://github.com/jhamadhav/Color-candy">click here</a> .
+            <a href="https://github.com/jhamadhav/Color-candy">click here</a>
+            .
           </p>
         </div>
       </div>
@@ -170,6 +171,7 @@
 
     <div class="container">
       <canvas id="canvas"></canvas>
+      <div id="score_keeper">0</div>
       <div id="loader">
         <span></span>
         <span></span>
@@ -196,10 +198,10 @@
           <span>Message : </span>
           <span id="msg"></span>
         </div>
+        <button id="play_again" onclick="play_again()">
+          <i class="fas fa-redo-alt"></i>
+        </button>
       </div>
-      <button id="play_again" onclick="play_again()">
-        <i class="fas fa-redo-alt"></i>
-      </button>
     </div>
 
     <!-- audio files -->
