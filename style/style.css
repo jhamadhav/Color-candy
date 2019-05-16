@@ -263,7 +263,7 @@ h1 {
           align-items: center;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -15vw;
   top: 0;
   margin: auto;
   height: 65vh;
@@ -281,6 +281,12 @@ h1 {
   font-size: 22px;
   color: #ffeb3b;
   text-transform: uppercase;
+}
+
+@media (min-width: 740px) {
+  .tab {
+    bottom: 0;
+  }
 }
 
 #opt {
@@ -327,8 +333,6 @@ h1 {
   visibility: hidden;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 p {

@@ -199,7 +199,7 @@ h1 {
   align-items: center;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -15vw;
   top: 0;
   margin: auto;
   height: 65vh;
@@ -215,9 +215,9 @@ h1 {
     color: #ffeb3b;
     text-transform: uppercase;
   }
-  // @include desktop {
-  //
-  // }
+  @include desktop {
+    bottom: 0;
+  }
 }
 #opt {
   // the tab that contains main option tabs
@@ -259,8 +259,8 @@ h1 {
   visibility: hidden;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  // width: 100%;
+  // height: 100vh;
 }
 p {
   font-family: "PT Sans", sans-serif;
